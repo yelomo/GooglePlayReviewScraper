@@ -9,8 +9,7 @@ There is no guarantee this api stays the same or even will be available in the f
 
 Usage
 ==============
-
-If you do not care about building this project download /dist and run
+Download the [latest release](https://github.com/yelomo/GooglePlayReviewScraper/releases/tag/1.0) and run following command
 
 ```java -jar google_play_review_scraper.jar [android-id] [start] [end] [filename] [language] ```
 
