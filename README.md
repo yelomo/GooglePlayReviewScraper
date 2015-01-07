@@ -11,7 +11,7 @@ Usage
 ==============
 Download the [latest release](https://github.com/yelomo/GooglePlayReviewScraper/releases/tag/1.0) and run following command
 
-```java -jar google_play_review_scraper.jar [android-id] [start] [end] [filename] [language] ```
+```java -jar google_play_review_scraper.jar [android-id] [start] [end] [fil] [lang] ```
 
 default values
 --------------
@@ -20,8 +20,8 @@ All arguments are optional and default values are used if an argument is no set 
 [android-id] = "com.google.android.apps.maps"
 [start] = 0
 [end] = 5
-[filename] = [android-id]_reviews
-[language] = "de"
+[file] = [android-id]_reviews
+[lang] = "de"
 ```
 Building the project
 ==============
