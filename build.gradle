@@ -1,0 +1,46 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+apply plugin: 'java'
+
+//create a single Jar with all dependencies
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Google Play Review Scraper',
+                   'Implementation-Version': version,
+                   'Main-Class': 'com.yelomo.ReviewScraper'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+
+    copy {
+        from fatJar
+        into 'dist'
+    }
+}
+
+build.finalizedBy(fatJar)
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'dist'
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.jsoup:jsoup:1.8.1'
+}
+
