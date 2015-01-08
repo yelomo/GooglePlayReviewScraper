@@ -77,6 +77,10 @@ public class ReviewParser {
             String description = reviewBody.text();
             //Remove double white spaces with one white space
             description = description.trim().replaceAll(" +", " ");
+            //Replace all ; and , because we need them for the csv
+            description = description.replaceAll(";", " ");
+            description = description.replaceAll(",", " ");
+
             //we just need the description text (this should be adjusted to fit your language and needs)
             description = description.replace("Vollständige Bewertung", "");
             description = description.replace("Full Review", "");
